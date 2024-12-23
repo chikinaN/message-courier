@@ -2,7 +2,10 @@ import { Client, Events, GatewayIntentBits } from "discord.js";
 import { CommandExecutor } from "./src/lib/command";
 import commands from "./src/courier";
 
-const client: Client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client: Client = new Client({ intents: [
+	GatewayIntentBits.Guilds,
+	GatewayIntentBits.MessageContent,
+] });
 
 client.once(Events.ClientReady, c => {
   console.log(`起動しました ログインタグは ${c.user.tag}`);
@@ -20,7 +23,7 @@ client.login(process.env.DISCORD_BOT_TOKEN).catch((error) => {
 
 function main() {
 	try {
-		client.user?.setActivity('好きな惣菜発表ドラゴン', { type: 0 })
+		client.user?.setActivity('メッセージ運び中', { type: 0 })
 
 		CommandExecutor(client, commands);
 

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "main.ts",
   "scripts": {
+    "compile": "tsc -p .",
+    "start": "NODE_ENV=production node --env-file=.env build/main.js",
+    "dev": "./env-read.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
